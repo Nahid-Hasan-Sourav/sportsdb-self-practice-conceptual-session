@@ -1,4 +1,5 @@
 import React from 'react';
+import Playerselect from '../Playerselect/Playerselect';
 import './Selected.css'
 
 const Selected = (props) => {
@@ -9,11 +10,11 @@ const Selected = (props) => {
     return (
        <div className="row gx-0">
          <div className='row gx-0 px-2 mt-2'>
-            <div>
+            <>
             <div className="card shadow-sm">
                <div className="profile-card-images p-3">
                <img src={
-                props.selecPlayer.strFanart1?props.selecPlayer.strFanart1:errorImage} alt='card-profile' className='select-profile'/>
+                props.selecPlayer.strThumb?props.selecPlayer.strThumb:errorImage} alt='card-profile' className='select-profile'/>
                </div>
                <div className="card-info text-center">
                   <h4>Name : {props.selecPlayer.strPlayer}</h4>
@@ -36,6 +37,29 @@ const Selected = (props) => {
                
                </div>
             </div>
+            </>
+        </div>
+
+        <div className="row gx-0 px-2 mt-2">
+            <div className="card shadow-sm p-3">
+              <div className="row row-cols-3 g-2 py-3">
+               
+               
+                  {
+                     props.getPlayer.map((player,index)=>{
+                       return(
+                        <Playerselect player={player} key={index}>
+
+                        </Playerselect>
+                      
+                       )
+                     })
+                  }
+
+                  
+             
+               
+              </div>
             </div>
         </div>
        </div>

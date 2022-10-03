@@ -12,6 +12,11 @@ const Players = (props) => {
      props.getSelectCaptain(player);
     }
 
+    
+    const addPlayerBtn =(addPlayer)=>{
+      props.getAddPlayerBtn(addPlayer)
+    }
+
     const showDataModal=(modalData)=>{
    
       setModal(modalData)
@@ -20,7 +25,7 @@ const Players = (props) => {
       // e.currentTarget.disabled = true;
     }
     
-    console.log("Modal State",modal)
+    // console.log("Modal State",modal)
     const errorImage="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930";
     return (
        <div>
@@ -32,7 +37,9 @@ const Players = (props) => {
                     player={player}
                     showDataModal={showDataModal}
                     selectCaptain={selectCaptain}
-                    // disable={disable}
+                    
+                    addPlayerBtn={addPlayerBtn}
+                    
                     ></Singleplayer>
                 )
              })
